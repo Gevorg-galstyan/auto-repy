@@ -1,0 +1,11 @@
+connections:
+  default:
+    host: 172.104.249.49
+    port: 32769
+    db: 0
+    auth: JEJ2EhCQ3i4ICDbBNV6dUG
+  horizon:
+    host: 172.104.249.49
+    port: 32769
+    db: 1
+    auth: JEJ2EhCQ3i4ICDbBNV6dUG

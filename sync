@@ -1,0 +1,2 @@
+#!/bin/bash
+rsync -avzPc --no-o --no-g --chmod=ug=rwX --stats --delete --exclude-from 'sync-excluded' -e "ssh " ./ quick@172.104.249.49:/var/www/thor

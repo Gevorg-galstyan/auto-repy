@@ -1,0 +1,8 @@
+.*
+/.vscode
+/storage
+/bootstrap/cache
+/public/images
+
+/public/users.txt
+docker-compose.override.yml

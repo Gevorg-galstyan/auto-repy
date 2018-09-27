@@ -1,0 +1,27 @@
+version: '2'
+services:
+    app:
+        build: ./
+        image: thor
+        entrypoint: ["/usr/bin/supervisord", "-n", "-c",  "/etc/supervisord.conf"]
+        volumes:
+            - ./:/var/www
+            - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+            - ./php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./supervisord.conf:/etc/supervisord.conf
+        links:
+            - database
+            - redis
+    database:
+        image: mysql:5.7
+    redis:
+        image: redis
+        command: redis-server --requirepass JEJ2EhCQ3i4ICDbBNV6dUG
+        ports:
+            - "6379"
+    composer:
+        restart: 'no'
+        image: composer/composer:php7
+        command: install
+        volumes:
+            - .:/app
